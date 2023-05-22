@@ -1,0 +1,507 @@
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE DATABASE "innovalabs" ENCODING = 'unicode'[0m
+  [1m[35m (131.5ms)[0m  [1m[35mCREATE DATABASE "chat_development" ENCODING = 'unicode'[0m
+  [1m[35m (70.2ms)[0m  [1m[35mCREATE DATABASE "chat_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE DATABASE "chat_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE DATABASE "chat_test" ENCODING = 'unicode'[0m
+  [1m[35m (47.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8807287657078091370)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-05-22 12:31:17.180003"], ["updated_at", "2023-05-22 12:31:17.180003"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8807287657078091370)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8807287657078091370)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMessages (20230522123316)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230522123316"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8807287657078091370)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8807287657078091370)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8807287657078091370)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" for ::1 at 2023-05-22 18:21:49 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" [WebSocket] for ::1 at 2023-05-22 18:21:49 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "SuiteApp::ProjectChannel"
+Started GET "/" for ::1 at 2023-05-22 18:21:49 +0530
+Processing by RoomsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 32)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1581)
+  Rendered layout layouts/application.html.erb (Duration: 150.5ms | Allocations: 77005)
+Completed 500 Internal Server Error in 161ms (ActiveRecord: 0.3ms | Allocations: 85044)
+
+
+  
+LoadError (cannot load such file -- coffee_script):
+  
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+zeitwerk (2.6.8) lib/zeitwerk/kernel.rb:38:in `require'
+sprockets (4.2.0) lib/sprockets/autoload/coffee_script.rb:2:in `<main>'
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+zeitwerk (2.6.8) lib/zeitwerk/kernel.rb:38:in `require'
+sprockets (4.2.0) lib/sprockets/coffee_script_processor.rb:17:in `cache_key'
+sprockets (4.2.0) lib/sprockets/coffee_script_processor.rb:23:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:22:in `block in <class:CompositeProcessor>'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:33:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.2.0) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.0) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.0) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.0) lib/sprockets/bundle.rb:27:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.2.0) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.0) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.0) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.0) lib/sprockets/bundle.rb:32:in `block in call'
+/home/nitesh/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0/set.rb:344:in `each_key'
+/home/nitesh/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0/set.rb:344:in `each'
+sprockets (4.2.0) lib/sprockets/bundle.rb:31:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.2.0) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.0) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.0) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.0) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.0) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/" for ::1 at 2023-05-22 18:21:50 +0530
+Processing by RoomsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 17)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 671)
+  Rendered layout layouts/application.html.erb (Duration: 30.5ms | Allocations: 23057)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.2ms | Allocations: 23394)
+
+
+  
+LoadError (cannot load such file -- coffee_script):
+  
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+zeitwerk (2.6.8) lib/zeitwerk/kernel.rb:38:in `require'
+sprockets (4.2.0) lib/sprockets/autoload/coffee_script.rb:2:in `<main>'
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+zeitwerk (2.6.8) lib/zeitwerk/kernel.rb:38:in `require'
+sprockets (4.2.0) lib/sprockets/coffee_script_processor.rb:17:in `cache_key'
+sprockets (4.2.0) lib/sprockets/coffee_script_processor.rb:23:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:22:in `block in <class:CompositeProcessor>'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:33:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.2.0) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.0) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.0) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.0) lib/sprockets/bundle.rb:27:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.2.0) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.0) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.0) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.0) lib/sprockets/bundle.rb:32:in `block in call'
+/home/nitesh/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0/set.rb:344:in `each_key'
+/home/nitesh/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0/set.rb:344:in `each'
+sprockets (4.2.0) lib/sprockets/bundle.rb:31:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.2.0) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.0) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.0) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.0) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.0) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:21:51 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:21:52 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:22:21 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:23:18 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/" for ::1 at 2023-05-22 18:28:56 +0530
+Processing by RoomsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 15)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3739)
+  Rendered layout layouts/application.html.erb (Duration: 60.2ms | Allocations: 48290)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 2.4ms | Allocations: 48637)
+
+
+  
+ActionView::Template::Error (Asset `controllers/application.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link controllers/application.js
+
+and restart your server):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:     <%= action_cable_meta_tag %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:28:58 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/" for ::1 at 2023-05-22 18:30:00 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 32)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1462)
+  Rendered layout layouts/application.html.erb (Duration: 40.5ms | Allocations: 43970)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.3ms | Allocations: 50790)
+
+
+  
+ActionView::Template::Error (Asset `controllers/application.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link controllers/application.js
+
+and restart your server):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:     <%= action_cable_meta_tag %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:30:03 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/" for ::1 at 2023-05-22 18:30:06 +0530
+Processing by RoomsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 17)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 686)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 21328)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.5ms | Allocations: 21677)
+
+
+  
+ActionView::Template::Error (Asset `controllers/application.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link controllers/application.js
+
+and restart your server):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:     <%= action_cable_meta_tag %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:30:08 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/" for ::1 at 2023-05-22 18:30:08 +0530
+Processing by RoomsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 606)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 21143)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.2ms | Allocations: 21453)
+
+
+  
+ActionView::Template::Error (Asset `controllers/application.js` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link controllers/application.js
+
+and restart your server):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:     <%= action_cable_meta_tag %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:30:10 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:30:40 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/cable" for ::1 at 2023-05-22 18:30:49 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2023-05-22 18:30:49 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "SuiteApp::ProjectChannel"
+Started GET "/" for ::1 at 2023-05-22 18:38:06 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 32)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1462)
+  Rendered layout layouts/application.html.erb (Duration: 47.7ms | Allocations: 32603)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.4ms | Allocations: 39391)
+
+
+  
+LoadError (cannot load such file -- coffee_script):
+  
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+zeitwerk (2.6.8) lib/zeitwerk/kernel.rb:38:in `require'
+sprockets (4.2.0) lib/sprockets/autoload/coffee_script.rb:2:in `<main>'
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+bootsnap (1.16.0) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+zeitwerk (2.6.8) lib/zeitwerk/kernel.rb:38:in `require'
+sprockets (4.2.0) lib/sprockets/coffee_script_processor.rb:17:in `cache_key'
+sprockets (4.2.0) lib/sprockets/coffee_script_processor.rb:23:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:22:in `block in <class:CompositeProcessor>'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:33:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.2.0) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.0) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.0) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.0) lib/sprockets/bundle.rb:27:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.2.0) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.0) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.0) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.0) lib/sprockets/bundle.rb:32:in `block in call'
+/home/nitesh/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0/set.rb:344:in `each_key'
+/home/nitesh/.rvm/rubies/ruby-3.0.2/lib/ruby/3.0.0/set.rb:344:in `each'
+sprockets (4.2.0) lib/sprockets/bundle.rb:31:in `call'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.0) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.0) lib/sprockets/loader.rb:182:in `load_from_unloaded'
+sprockets (4.2.0) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.0) lib/sprockets/loader.rb:337:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.0) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.0) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.0) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.0) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.0) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+concurrent-ruby (1.2.2) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:38:08 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/" for ::1 at 2023-05-22 18:41:02 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 32)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1462)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 5873)
+Completed 200 OK in 12ms (Views: 6.2ms | ActiveRecord: 0.4ms | Allocations: 12732)
+
+
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:41:04 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/" for ::1 at 2023-05-22 18:41:07 +0530
+Processing by RoomsController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 17)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 685)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1693)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 2081)
+
+
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:41:09 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/service-worker.js" for ::1 at 2023-05-22 18:41:39 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started GET "/cable" for ::1 at 2023-05-22 18:41:49 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2023-05-22 18:41:49 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "SuiteApp::ProjectChannel"
